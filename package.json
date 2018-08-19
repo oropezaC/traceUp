@@ -1,0 +1,32 @@
+{
+  "name": "fmwrkJs",
+  "version": "0.0.1",
+  "description": "estructura base angular routes node js",
+  "main": "index.js",
+  "scripts": {
+    "build-js": "watchify public/app/app.js -o public/build.js"
+  },
+  "keywords": [
+    "angular",
+    "node",
+    "js",
+    "router",
+    "ui"
+  ],
+  "author": "Yahir Oropeza",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "1.6.9",
+    "angular-route": "^1.7.2",
+    "angular-ui--bootstrap": "^1.0.0",
+    "angular-ui-grid": "^4.6.3",
+    "body-parser": "^1.18.3",
+    "bootstrap": "^4.1.3",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "watchify": "^3.7.0"
+  }
+}

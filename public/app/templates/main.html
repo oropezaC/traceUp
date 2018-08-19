@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="ui active inverted dimmer" ng-if="loader">
+    <div class="ui massive text loader">Cargando...</div>
+  </div>
+  <h2 class="ui center aligned icon header">
+  <i class="circular shopping basket icon"></i>
+  Trace UP
+</h2>
+
+  <div class="ui one column stackable center aligned page grid">
+    <div class="column twelve wide">
+      <div class="ui icon action input">
+        <input type="text" placeholder="Search..." ng-model="product">
+        <button class="ui icon button" ng-click="search(product)">
+          <i class="search icon"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="ui divider"></div>
+    <div ng-if="error" class="ui floating message error massive">
+      {{error}}
+      <i class="bug icon" style="float:right"></i>
+    </div>
+    <div class="ui three stackable cards">
+      <div class="card" ng-repeat="item in products | orderBy:sortType:sortReverse">
+        <div class="image">
+          <img src="{{item.img}}">
+        </div>
+        <div class="content">
+          <a class="header">{{item.title}}</a>
+          <div class="description">
+            {{item.desc}}
+          </div>
+        </div>
+        <div class="extra content">
+          <a href="{{item.link}}" target="_blank">
+            <label ng-if="!item.offer">ver más..</label>
+            <i ng-if="item.offer" class="dollar sign icon"></i>
+            {{item.offer}}
+            <span style="float:right"><img src="{{item.logotrace}}" alt="" width="25px" height="25px"> </span>
+          </a>
+        </div>
+      </div>
+    </div>
+</div>
