@@ -11,25 +11,25 @@ function searchItems( req, res ) {
   config = JSON.parse(config.toString())
 
   var uri = `${config.credentials.uri}?key=${config.credentials.key}&cx=${config.credentials.cx}${config.credentials.cxid}&q=${d.item}`
-  console.log(uri,'***************');
-  request.get( uri , async function (error, response, body) {
+  request.get( uri , function (error, response, body) {
 
     if (!error) {
 
-      let aw = await validarBusqueda(body)
+      validarBusqueda(body)
+      .then(function(aw){
+        if (!aw.err) {
+          var items = [];
+          var data = JSON.parse(body)
 
-      if (!aw.err) {
-        var items = [];
-        var data = JSON.parse(body)
+          clean(data.items).then(function(results) {
 
-        clean(data.items).then(function(results) {
+            res.json({ err: false, code: 200, data: results })
 
-          res.json({ err: false, code: 200, data: results })
-
-        })
-      } else {
-        res.json(aw)
-      }
+          })
+        } else {
+          res.json(aw)
+        }
+      })
 
     } else {
 
@@ -41,7 +41,7 @@ function searchItems( req, res ) {
 
 }
 
-async function validarBusqueda(d) {
+function validarBusqueda(d) {
   return new Promise(function(resolve, reject) {
     d = JSON.parse(d);
 
