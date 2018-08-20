@@ -10,7 +10,8 @@ function searchItems( req, res ) {
   var config = fs.readFileSync(path.join(__dirname, '..', 'config', 'conf.json'))
   config = JSON.parse(config.toString())
 
-  var uri = `${config.credentials.uri}?key=${config.credentials.key}&cx=${config.credentials.cx}&q=${d.item}`
+  var uri = `${config.credentials.uri}?key=${config.credentials.key}&cx=${config.credentials.cx}${config.credentials.cxid}&q=${d.item}`
+  console.log(uri,'***************');
   request.get( uri , async function (error, response, body) {
 
     if (!error) {
