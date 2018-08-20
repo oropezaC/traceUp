@@ -36,6 +36,7 @@ app.module(APP_NAME)
     }else {
       console.log("error");
       $scope.error = "Consulte con el administrador"
+      $scope.loader = false
     }
     })
   }
