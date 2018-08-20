@@ -34416,6 +34416,7 @@ app.module(APP_NAME)
     var sears = "app/resourses/images/sears.jpg";
     productService.searchItems(params)
     .then(function (result) {
+      console.log(result);
       if (result.data.code==200) {
           console.log(result);
          var data = result.data.data
@@ -34433,6 +34434,7 @@ app.module(APP_NAME)
     }else {
       console.log("error");
       $scope.error = "Consulte con el administrador"
+      $scope.loader = false
     }
     })
   }

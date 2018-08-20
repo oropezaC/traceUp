@@ -7,6 +7,7 @@ var path = require('path')
 config = require('./config/conf').credentials
 env = require('./config/enviroment')
 enviromen = process.env.NODE_ENV || 'development';
+Promise = require('bluebird')
 
 app.use(bodyParser());
 app.use(cookieParser());

@@ -10,7 +10,7 @@
   <div class="ui one column stackable center aligned page grid">
     <div class="column twelve wide">
       <div class="ui icon action input">
-        <input type="text" placeholder="Search..." ng-model="product">
+        <input type="text" placeholder="Search..." ng-model="product" ng-change="error = false">
         <button class="ui icon button" ng-click="search(product)">
           <i class="search icon"></i>
         </button>
